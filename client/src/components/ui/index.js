@@ -1,0 +1,15 @@
+import Header from '@/components/ui/Header.vue'
+import Loader from '@/components/ui/Loader.vue'
+import EditButton from '@/components/ui/EditButton.vue'
+import ErrorMessage from '@/components/ui/ErrorMessage.vue'
+import FavoritesButton from '@/components/ui/FavoritesButton.vue'
+import DeleteButton from '@/components/ui/DeleteButton.vue'
+import ConfirmButton from '@/components/ui/ConfirmButton.vue'
+import DeletePopup from '@/components/ui/DeletePopup.vue'
+import ActivationPopup from '@/components/ui/ActivationPopup.vue'
+import InputModel from '@/components/ui/InputModel.vue'
+import TextareaModel from '@/components/ui/TextareaModel.vue'
+import UploadImage from '@/components/ui/UploadImage.vue'
+import ObserverBlock from '@/components/ui/ObserverBlock.vue'
+
+export default [Header,Loader,EditButton,ErrorMessage,ObserverBlock,FavoritesButton,DeleteButton,ConfirmButton,DeletePopup,ActivationPopup,InputModel,TextareaModel,UploadImage]
