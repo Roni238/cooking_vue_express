@@ -17,17 +17,32 @@ export default {
             getPosts:'postModule/getPosts',
         })
     },
-    mounted(){
-        this.$store.dispatch('postModule/mountedPost', this.$route.params.category)
-        this.$store.dispatch('styleModule/loadStyleCategory', this.$route.params.category)
+    async mounted(){
+        await this.$store.dispatch('postModule/mountedPost', this.$route.params.category)
+        await this.$store.dispatch('styleModule/loadStyleCategory', this.$route.params.category)
+        this.updateMetaTags()
     },
-    // beforeUnmount(){
-    //     this.$store.dispatch('styleModule/resetStyle')
-    // },
+    beforeUnmount(){
+        // this.$store.dispatch('styleModule/resetStyle')
+        const descriptionMeta = document.querySelector('meta[name="description"]')
+        descriptionMeta.content = process.env.VUE_APP_DEFAULT_DESCRIPTION_META
+
+        const keywordsMeta = document.querySelector('meta[name="keywords"]')
+        keywordsMeta.content = process.env.VUE_APP_DEFAULT_KEYWORDS_META
+    },
     methods:{
         ...mapActions({
             loadMorePosts: 'postModule/loadMorePosts',
         }),
+        updateMetaTags(){
+            if(this.$route.params.category){
+                document.title = this.getPosts[0]?.category
+                const keywordsMeta = document.querySelector('meta[name="keywords"]')
+                keywordsMeta.content += `, ${this.getPosts[0]?.category}`
+            }else{
+                document.title = 'Все рецепты'
+            }
+        }
     },
 }
 </script>

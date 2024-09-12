@@ -5,6 +5,7 @@ import store from './store'
 import components from '@/components'
 import directives from '@/directives';
 import './css/variables.css';
+
 const app = createApp(App)
 
 components.forEach(component=>app.component(component.name,component))

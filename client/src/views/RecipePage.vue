@@ -52,22 +52,21 @@ import {mapGetters, mapActions} from 'vuex'
 export default {
     data() {
         return {
-            currentPost:{},
-            secondColor:'',
+            currentPost:{}
         }
     },
+
     async mounted(){
+        console.log(process.env.DEFAULT_DESCRIPTION_META)
         this.$store.dispatch('postModule/loadСurrentPost', this.$route.params.link)
             .then(post=>{
                 this.currentPost = post
                 this.$store.dispatch('styleModule/loadStyleCategory', this.currentPost.category)
                 this.$store.dispatch('commentModule/mountComments', this.currentPost.category)
-                document.title = `${this.currentPost.title}`
+                this.updateMetaTags()
             })
     },
-    // beforeUnmount(){
-    //     this.$store.dispatch('styleModule/resetStyle')
-    // },
+
     computed:{
       ...mapGetters({
             getUser:'userModule/getUser',
@@ -79,6 +78,15 @@ export default {
         }
     },
     
+    beforeUnmount(){
+        // this.$store.dispatch('styleModule/resetStyle')
+        const descriptionMeta = document.querySelector('meta[name="description"]')
+        descriptionMeta.content = process.env.VUE_APP_DEFAULT_DESCRIPTION_META
+
+        const keywordsMeta = document.querySelector('meta[name="keywords"]')
+        keywordsMeta.content = process.env.VUE_APP_DEFAULT_KEYWORDS_META
+    },
+
     methods:{
         ...mapActions({
             fetchComments: 'commentModule/fetchComments',
@@ -88,6 +96,15 @@ export default {
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth' })
             }
+        },
+        updateMetaTags(){
+            document.title = this.currentPost.title
+
+            const descriptionMeta = document.querySelector('meta[name="description"]')
+            descriptionMeta.content = this.currentPost.description
+
+            let keywordsMeta = document.querySelector('meta[name="keywords"]')
+            keywordsMeta.content += `, ${this.currentPost.title}, ${this.currentPost.category}`
         }
     }
 }
