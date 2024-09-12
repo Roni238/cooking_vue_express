@@ -38,25 +38,37 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-div{
-    display: flex;
-    justify-content: flex-end;  
+    span{
+        color: var(--category-second-color);
 
-    input{
-        width: 100%;
-        padding: 3px;
-        font-size: 14px;
-        border-radius: 10px;
-        border: solid black 1px;
-        margin-bottom: 10px;
-        background-color: #FFF;
+        input{
+            width: 100%;
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: solid black 1px;
+            margin-bottom: 10px;
+            background: none;
+            border: var(--category-second-color) 2px solid;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            color: var(--category-second-color);
+        }
+
+        div{
+            display: flex;
+            justify-content: flex-end;  
+        
+            
+            button{
+                border: none;
+                padding: 7px;
+                font-size: 14px;
+                border-radius: 10px;
+                background-color: var(--category-second-color);
+                color: var(--category-main-color);
+            }
+        }
     }
-    button{
-        border: solid black 1px;
-        padding: 7px;
-        font-size: 14px;
-        border-radius: 10px;
-        background-color: #FFF;
-    }
-}
+
+
 </style>

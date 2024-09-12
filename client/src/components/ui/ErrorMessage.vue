@@ -28,12 +28,12 @@ export default {
         position: fixed;
         right: 15px;
         bottom: 15px;
-        color: $main-color;
+        color: var(--category-main-color);
         max-width: 300px;
         border-radius: 10px;  
         transition: opacity 1s ease-out;
         opacity: 1;
-        background-color: rgba($second-color, 0.8);
+        background-color: var(--category-second-color);
     }
 
     .slide-fade-enter-active {

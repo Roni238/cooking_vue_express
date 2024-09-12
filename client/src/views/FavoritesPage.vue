@@ -47,7 +47,7 @@ export default {
                 this.loading = false
                 this.error = true
             }
-            this.$store.commit('styleModule/setDefaultStyle')
+            this.$store.dispatch('styleModule/resetStyle')
         }
     },
     watch:{
@@ -60,21 +60,24 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-h3{
-    margin-top: 10px;
-    width:100%;
-    display: flex;
-    justify-content: center;
-}
-h2{
-    margin: 15px 0px;
-}
-.favorites{
-    max-width:1100px;
-    margin:auto;
-    padding: 10px;
-}
-.error{
-    cursor: pointer;
-}
+    .favorites{
+        max-width:1100px;
+        margin:auto;
+        padding: 10px;
+
+        h2{
+            margin: 15px 0px;
+        }
+
+        h3{
+            margin-top: 10px;
+            width:100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .error{
+            cursor: pointer;
+        }
+    }
 </style>

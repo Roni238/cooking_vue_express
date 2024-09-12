@@ -2,7 +2,7 @@
     <div class="create-post-page">
         <section>
             <categories-selected  @update:model-value="setNewPostCategories"/> 
-         </section>
+        </section>
 
         <section class="info">
             <upload-image/>
@@ -11,8 +11,6 @@
                 <textarea-model placeholder="Описание" required :model-value="newPostDescription" @update:model-value="setNewPostDescription" maxlength="255"/>
             </div>   
         </section>
-
-        
 
         <section>
             <h3>Состав</h3>
@@ -25,8 +23,6 @@
             <add-item-list :mutationPost="'pushRecipe'"/>
             <item-list :list="getRecipe" :dispatch="'newPostModule/deleteRecipeParagraph'"/>   
         </section>
-        
-        
         
         <button @click="this.$store.dispatch('newPostModule/createNewPost').then(res=>newPostLink=res)">Создать новый пост</button>
 
@@ -65,62 +61,53 @@ export default {
         }),
     },
     mounted(){
-        this.$store.commit('styleModule/setDefaultStyle')
+        this.$store.dispatch('styleModule/resetStyle')
     },
 }
 </script>
 
 <style scoped lang="scss">
-@media (min-width: 1000px) {
+
     .create-post-page{
-        max-width:1000px;
-        margin:auto;
+        padding: 10px 20px;
+        gap: 10px;
+
+        section{
+            border: solid 2px black;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px; 
+            
+            h3{
+                margin-bottom: 10px;
+            }
+        }
+
+        .info{
+            display: grid;
+            grid-template-rows: 1fr;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+        
+            textarea{
+                background-color: rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                border: none;
+            }
+        
+        }
+
+        button{
+            width: 100%;
+            padding: 5px;
+            font-size: 18px;
+            margin-top: 10px;
+            border-radius: 10px;
+            background-color: var(--category-second-color);
+            border: 2px solid black;
+            color: var(--category-main-color);
+        }
     }
-}
-.create-post-page{
-    padding: 10px 20px;
-    gap: 10px;
-}
-
-h3{
-    margin-bottom: 10px;
-}
-section{
-    border: solid 2px black;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;   
-}
-.info{
-    display: grid;
-    grid-template-rows: 1fr;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr;
-
-    textarea{
-        background-color: rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        border: none;
-    }
-
-}
-.title{
-    width: 100%;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-button{
-    width: 100%;
-    padding: 5px;
-    font-size: 18px;
-    margin-top: 10px;
-    border-radius: 10px;
-    background-color: $second-color;
-    border: 2px solid black;
-    color: $main-color;
-}
-
 @media (max-width: 750px) {
     .info{
         display: block;
@@ -128,6 +115,12 @@ button{
         div{
             margin-top: 10px;
         }
+    }
+}
+@media (min-width: 1000px) {
+    .create-post-page{
+        max-width:1000px;
+        margin:auto;
     }
 }
 </style>

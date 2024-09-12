@@ -20,7 +20,8 @@ export default {
 </script>
 <style lang="scss" scoped>
     input{
-        background-color: $main-color;
+        color: var(--category-second-color);
+        color: var(--category-main-color);
         border-radius: 10px;
         border: none;
     }

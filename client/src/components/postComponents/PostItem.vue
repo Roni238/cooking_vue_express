@@ -7,7 +7,7 @@
             <favorites-button :post="post" v-if="getUser.email&&getUser.isActivated"/>
         </span>
         
-        <router-link :to="{ name:'recipe', params:{link:post.link} }" :style="{color:getCurrentStyle.secondСolor}">
+        <router-link :to="{ name:'recipe', params:{link:post.link} }">
             <img :src="filePath">
             <h3>{{post.title}}</h3> 
        </router-link>
@@ -26,7 +26,6 @@ export default {
     },
     computed:{
       ...mapGetters({
-            getCurrentStyle:'styleModule/getCurrentStyle',
             getFavoritesId:'favoritesModule/getFavoritesId',
             getUser:'userModule/getUser',
         }),
@@ -87,4 +86,7 @@ export default {
         z-index: 10;
         display: flex;
     }   
+    a{
+        color: var(--category-second-color);
+    }
 </style>

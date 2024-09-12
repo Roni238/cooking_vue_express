@@ -4,7 +4,7 @@ const CommentController = require('../controllers/commentController')
 const StyleController = require('../controllers/styleController')
 const CategoryController = require('../controllers/categoryController')
 const FavoritesController = require('../controllers/favoritesController')
-const RoleController = require('../controllers/RoleController')
+const RoleController = require('../controllers/roleController')
 
 
 const authMiddleware = require('../middlewares/auth-middleware');

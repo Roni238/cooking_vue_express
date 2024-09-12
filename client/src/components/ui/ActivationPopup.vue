@@ -16,8 +16,8 @@ export default {
 
     .activation-popup{
         width: 80%;
-        color: $second-color;
-        background: $icon-color;
+        stroke: var(--category-second-color);
+        background: var(--category-main-color);
         margin: auto;
         padding: 20px;
         border-radius: 20px;
@@ -34,11 +34,11 @@ export default {
         width: 100%;
     }
     button{
-        background: $second-color;
+        background: var(--category-second-color);
         border: none;
         font-size: 16px;
         margin-top: 10px;
-        color: $icon-color;
+        color: var(--category-main-color);
         padding:5px 10px;
         border-radius: 5px;
     }

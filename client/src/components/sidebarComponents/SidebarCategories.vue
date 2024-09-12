@@ -1,13 +1,12 @@
 <template>
     <ul>
-        <router-link :to="{ name: 'menu', params: { category: category.categoryLink }}"  v-for="category in getCategories" :key="category._id" v-if="getCategories.length>0">
-            <li @click="showPanel" 
-                :style="{color: getCurrentStyle?.secondСolor, borderBottom: `${getCurrentStyle?.secondСolor} 4px dotted`}" >
+        <router-link :to="{ name: 'menu', params: { category: category.categoryLink }}"  v-for="category in getCategories" :key="category._id">
+            <li @click="showPanel" >
                 {{ category.categoryName }}
             </li>
             
         </router-link>
-        <loader-vue v-else/>
+        <loader-vue v-if="getCategories.length === 0"/>
     </ul>
 </template>
 <script>
@@ -24,7 +23,6 @@ export default {
     computed:{
     ...mapGetters({
         getCategories:'categoryModule/getCategories',
-        getCurrentStyle:'styleModule/getCurrentStyle',
     }),
     
   },
@@ -32,6 +30,8 @@ export default {
 </script>
 <style scoped lang="scss">
     li{
+        border-bottom:var(--category-second-color) 4px dotted;
+        color: var(--category-second-color);
         display: flex;
         align-items: center;
         margin: 15px;

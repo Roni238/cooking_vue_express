@@ -1,0 +1,10 @@
+:root {
+    --default-main-color:#f0f0f0;
+    --default-second-color:#92000A;
+
+    --category-main-color: var(--default-main-color);
+    --category-second-color: var(--default-second-color); 
+    --modification-color:rgb(255, 255, 255);
+
+    --favorite-color: #FF0000; 
+}

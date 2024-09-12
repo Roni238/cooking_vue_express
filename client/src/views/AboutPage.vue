@@ -7,22 +7,24 @@
     <a href="https://t.me/Roni238000000">Телеграм</a>
   </div>
 </template>
-<style scoped>
+<style lang="scss" scoped>
   div{
     padding: 10px 20px;
-  }
-  a{
-    display: block;
-    margin: 5px 10px;
-  }
-  h2{
-    margin: 10px 0px;
+
+    h2{
+      margin: 10px 0px;
+    }
+
+    a{
+      display: block;
+      margin: 5px 10px;
+    }
   }
 </style>
 <script>
 export default {
   mounted(){
-    this.$store.commit('styleModule/setDefaultStyle')
+    this.$store.dispatch('styleModule/resetStyle')
   },
 }
 </script>

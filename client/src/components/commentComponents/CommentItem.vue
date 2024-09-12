@@ -1,5 +1,5 @@
 <template>
-    <div :style="{color: getCurrentStyle?.secondСolor}">   
+    <div>   
         <delete-button v-if="getUser.id == comment.autor.id || getUser.role=='admin'"
           @click="this.$store.commit('setSelectedAction','commentModule/removeComment');this.$store.commit('setSelectObj',comment)"
         />
@@ -27,19 +27,23 @@ export default {
     },
     computed:{
         ...mapGetters({
-            getUser:'userModule/getUser',
-            getCurrentStyle:'styleModule/getCurrentStyle',
+            getUser:'userModule/getUser'
         }),
     },
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
     div{
-        border: solid black 1px;
+        color: var(--category-second-color);
+        border: var(--category-second-color) 2px solid;
         border-radius: 13px;
         margin-top: 10px;
         padding: 10px;
         overflow: hidden;
         word-break:break-all;
+
+        svg{
+            float: right;
+        }
     }
 </style>

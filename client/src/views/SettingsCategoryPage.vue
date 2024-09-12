@@ -32,43 +32,45 @@ export default {
         },
     },
     mounted(){
-        this.$store.commit('styleModule/setDefaultStyle')
+        this.$store.dispatch('styleModule/resetStyle')
     },
 }
   </script>
 <style scoped lang="scss">
-.create{
-    display: flex;
-    color: $second-color;
-    background-color: rgba(59, 59, 59, 0.369);
-    height: 45px;
-    border-radius:10px;
-}
-.create input{
-    background: none;
-}
+
 .create-category{
     max-width:1000px;
     margin:auto;
     padding-top: 10px;
-    color: rgb(69, 50, 46);
-}
-button{
-    background: $second-color;
-    padding: 5px;
-    border-radius: 0px 10px 10px 0px;
-    float: right;
-    border: none;
-    
-    svg{
-        stroke: $main-color;
+
+    h2{
+        width: 100%;
+        margin: 20px 0px;
     }
-}
-h2{
-    width: 100%;
-    margin: 20px 0px;
-}
-input{
-    height: 44px;
+
+    form{
+        display: flex;
+        background-color: rgba(59, 59, 59, 0.369);
+        height: 45px;
+        border-radius:10px;
+
+        input{
+            background: none;
+            height: 44px;
+            color: var(--category-second-color);
+        }
+
+        button{
+            background: var(--category-second-color);
+            padding: 5px;
+            border-radius: 0px 10px 10px 0px;
+            float: right;
+            border: none;
+            
+            svg{
+                stroke: var(--category-main-color);
+            }
+        }
+    }  
 }
 </style>

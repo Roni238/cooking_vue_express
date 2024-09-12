@@ -1,20 +1,12 @@
 const { defineConfig } = require('@vue/cli-service')
 const path = require('path')
 module.exports = defineConfig({
-  outputDir:path.resolve(__dirname,'../server/public'),
+  // outputDir:path.resolve('../var/www/dist'),
   devServer:{
     proxy:{
       '/api':{
-        target:'http://localhost:5000'
+        target:'localhost:5000'
       }
     }
   },  
-
-  css: {
-    loaderOptions: {
-      sass: {
-        additionalData: `@import "@/scss/_variables.scss";`
-      }
-    }
-  }
 })

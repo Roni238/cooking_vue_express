@@ -1,15 +1,15 @@
 <template>
-  <header :style="{ backgroundColor:getCurrentStyle?.secondСolor}">
+  <header >
       <div>
-        <arrow-icon :style="{stroke:getCurrentStyle?.mainColor}" 
+        <arrow-icon
           @click.stop="showCategories" v-if="getShowSidebar"
         />
         
-        <sidebar-button-icon :style="{stroke:getCurrentStyle?.mainColor}" 
+        <sidebar-button-icon
           @click.stop="openSidebar" v-if="!getShowSearch &&!getShowSidebar"
         />
         
-        <hide-search-icon :style="{stroke:getCurrentStyle?.mainColor}" 
+        <hide-search-icon
           @click="hideSidebar" v-if="getShowSearch"
         />
         
@@ -17,16 +17,16 @@
      
       
       <router-link to="/" v-if="!getShowSearch">
-        <h2 :style="{ color:getCurrentStyle?.mainColor}">light food</h2>
+        <h2>light food</h2>
       </router-link>
 
       <form-styled @submit.prevent="search" v-else>
-        <post-search  v-focus :style="{ color:getCurrentStyle?.secondСolor, backgroundColor: getCurrentStyle?.mainColor}"/>
+        <post-search  v-focus/>
       </form-styled>
       
       
       <div @click="search" class="search">
-        <open-search-icon :style="{stroke:getCurrentStyle?.mainColor}"/>
+        <open-search-icon/>
       </div>
   </header>
 </template>
@@ -40,7 +40,6 @@ import {mapGetters} from 'vuex'
           getShowCategories:'sidebarModule/getShowCategories',
           getShowSearch:'getShowSearch',
           getShowSidebar:'sidebarModule/getShowSidebar',
-          getCurrentStyle:'styleModule/getCurrentStyle',
         }) 
       },
       methods:{
@@ -67,7 +66,7 @@ import {mapGetters} from 'vuex'
 </script>
 <style lang="scss" scoped>
   header{
-    background-color: $main-color;
+    background-color: var(--category-second-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -83,9 +82,7 @@ import {mapGetters} from 'vuex'
   div{
     margin: 0 20px;
   }
-  h2{
-    cursor: pointer;
-  }
+
   @media (min-width: 800px) {
     .search svg{
       margin: 0 10px 0px 0px;
@@ -93,5 +90,10 @@ import {mapGetters} from 'vuex'
   }
   form{
     padding: 0px;
+  }
+  svg, h2{
+    color: var(--category-main-color);
+    stroke: var(--category-main-color);
+    cursor: pointer;
   }
 </style>

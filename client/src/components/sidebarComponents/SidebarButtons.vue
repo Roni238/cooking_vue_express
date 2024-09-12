@@ -1,8 +1,8 @@
 <template>
     <div class="sidebar-button">
         <div v-if="visibility"  @click="Click" >
-            <component :is="icon" :style="{stroke:getCurrentStyle?.secondСolor}"/>
-            <router-link :to="{name: nameLink}" :style="{color: getCurrentStyle?.secondСolor}">{{title}}</router-link>
+            <component :is="icon"/>
+            <router-link :to="{name: nameLink}">{{title}}</router-link>
         </div>
     </div>
 </template>
@@ -20,7 +20,6 @@ export default {
     computed:{
         ...mapGetters({
             getUser:'userModule/getUser',
-            getCurrentStyle:'styleModule/getCurrentStyle',
         }),
         visibility() {
             switch(this.checkingAvailability){
@@ -63,6 +62,10 @@ export default {
         
         svg{ 
             margin-right: 12px;
+            stroke:var(--category-second-color);
+        }
+        a{
+            color: var(--category-second-color);
         }
       }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div  class="preview">
-        <div class="header" :style="{ backgroundColor: getEditCategory?.secondСolor}">
+        <div class="header" :style="{backgroundColor: getEditCategory?.secondСolor}">
             
             <sidebar-button-icon :style="{stroke:getEditCategory?.mainColor}"/>
             
@@ -37,14 +37,13 @@ export default {
     computed:{
        ...mapGetters({
             getSelectedCategory:'styleModule/getSelectedCategory',
-            getCurrentStyle:'styleModule/getCurrentStyle',
             getEditCategory:'styleModule/getEditCategory'
         }) 
     },
     watch:{
         async getSelectedCategory(category){
             await StyleService.getStyle(this.getSelectedCategory).then(res=>{
-                this.$store.commit('styleModule/setSecondСolor',res.data.headerColor)
+                this.$store.commit('styleModule/setSecondСolor',res.data.secondСolor)
                 this.$store.commit('styleModule/setMainColor',res.data.mainColor)
             })
         }
@@ -54,12 +53,12 @@ export default {
 <style lang="scss" scoped>
     .preview{
         width: 100%;
-        background-color: $main-color;
+        background-color: var(--category-main-color);
         color: aliceblue;
         margin: 40px 0;
 
         .header{
-            background: $second-color;
+            background: var(--category-second-color);
             display: flex;
             align-items: center;
             justify-content: space-around;

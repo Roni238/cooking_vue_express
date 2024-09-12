@@ -54,7 +54,7 @@ export default {
         border: none;
         font-size: 20px;
         border-radius: 0px 10px 10px 0px;
-        color:$main-color;
+        color: var(--category-main-color);
     }
 
 </style>

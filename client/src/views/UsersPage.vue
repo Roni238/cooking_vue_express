@@ -11,7 +11,7 @@ import { mapActions } from 'vuex';
 
 export default{
     mounted(){
-        this.$store.commit('styleModule/setDefaultStyle')
+        this.$store.dispatch('styleModule/resetStyle')
     },
     methods:{
         ...mapActions({
@@ -20,13 +20,14 @@ export default{
     },
 }
 </script>
-<style scoped>
-.users{
-    max-width:1000px;
-    margin:auto;
-    padding-top: 20px;
-}
-h2{
-    margin-bottom: 10px;
-}
+<style lang="scss" scoped>
+    .users{
+        max-width:1000px;
+        margin:auto;
+        padding-top: 20px;
+
+        h2{
+            margin-bottom: 10px;
+        }
+    }
 </style>

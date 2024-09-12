@@ -31,7 +31,7 @@ export default {
     computed:{
     ...mapGetters({
       getSelectObj:'getSelectObj',
-      getSelectedAction:'getSelectedAction'
+      getSelectedAction:'getSelectedAction',
     })
   },
   methods:{
@@ -60,17 +60,18 @@ export default {
         overflow: hidden;
     }
     .popup{
+        max-width: 1000px;
         justify-content: center;
         flex-direction: column;
         max-height: 70%;
         padding: 20px;
         margin: 20px;
         border-radius: 20px;
-        background-color: $second-color;
         overflow: hidden;
-        color:$main-color;
+        color: var(--category-second-color);
         display: flex;
         text-align: center;
+        background-color: var(--category-main-color);
     }
     span{
         justify-content: space-around;
@@ -86,8 +87,9 @@ export default {
         margin: auto;
         margin-top: 20px;
         padding: 10px 35px ;
-        border-radius: 15px;
-        color: $second-color;
-        background: $main-color;
+        border-radius: 10px;
+        color: var(--category-main-color);
+        background-color: var(--category-second-color);
+        border: none;
     }
 </style>

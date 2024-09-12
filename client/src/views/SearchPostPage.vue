@@ -10,7 +10,6 @@ import {mapGetters} from 'vuex'
 export default {
     computed:{
         ...mapGetters({
-            getCurrentStyle:'styleModule/getCurrentStyle',
             getSearchedPosts:'postModule/getSearchedPosts',
         })
     },
@@ -19,7 +18,7 @@ export default {
             this.$store.commit('postModule/setSearchPostQuery', this.$route.query.searchParams)
         }
         this.$store.dispatch('postModule/findPost', this.$router)
-        this.$store.commit('styleModule/setDefaultStyle')
+        this.$store.dispatch('styleModule/resetStyle')
     }
 }
 </script>
@@ -29,8 +28,9 @@ export default {
     max-width: 1200px;
     margin: auto;
     min-height: calc(100vh - 65px); 
-}
-h1{
-    padding: 10px;
+
+    h1{
+        padding: 10px;
+    }
 }
 </style>

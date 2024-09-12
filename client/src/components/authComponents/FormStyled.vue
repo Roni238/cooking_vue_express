@@ -12,7 +12,7 @@ export default {
 form{
     width: 80%;
     margin: auto;
-    background-color: $second-color;
+    background-color: var(--category-second-color);
     display: flex;
     border-radius: 12px;
     flex-direction: column;
@@ -21,24 +21,24 @@ form{
 form:deep(){
     h4{
         margin: 10px 0px 5px 0px;
-        color: $main-color;
+        color: var(--category-main-color);
     }
     button{
         border: none;
         border-radius: 5px;
-        background: $main-color;
+        background: var(--category-main-color);
         align-self: center;
         padding: 10px 17px;
         font-size: 1.1rem;
         margin-top: 20px;
-        color: $second-color;
+        color: var(--category-second-color);
         cursor: pointer;
     }
     input{ 
-        color: $second-color;
+        color: var(--category-second-color);
         border: none;
         border-radius: 5px;
-        background: $main-color;
+        background: var(--category-main-color);
         padding: 7px;
         font-size: 1.1rem;
         width: 100%;

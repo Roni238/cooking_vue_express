@@ -15,34 +15,42 @@
 </template>
 
 <style lang="scss">
-  @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
-  .router{
-    min-height: calc(100vh - 65px);
-    margin-top: 65px;
-  }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+input{
+  font-weight:bold;
+  outline:none;
+}
+
+a{
+  font-weight: bold;
+  text-decoration: none;
+}
+
+svg{
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  stroke-width:2;
+}
+
   #app {
     font-family: 'Comfortaa', sans-serif;
-    background: $main-color;
+    background: var(--category-main-color);
     box-sizing: border-box;
     overflow: hidden;
-  }
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Comfortaa', sans-serif;
-  }
-  a{
-    font-weight: bold;
-    text-decoration: none;
-    color: #45322E;
-  }
-  svg{
-    cursor: pointer;
-    width: 34px;
-    height: 34px;
-    stroke-width:2;
+
+    .router{
+      min-height: calc(100vh - 65px);
+      margin-top: 65px;
+    }
   }
 </style>
 
@@ -54,18 +62,32 @@ export default {
     ...mapGetters({
       getShowSidebar:'sidebarModule/getShowSidebar',
       getShowDeletePopup:'getShowDeletePopup',
-      getCurrentStyle:'styleModule/getCurrentStyle',
       getUser:'userModule/getUser',
     }),
     userActivated(){
       return this.getUser.isActivated==false && !! this.getUser.email
-    }
+    },
   },
   methods:{
     hideSidebar(){
       this.$store.commit('sidebarModule/setShowSidebar', false)
       this.$store.commit('sidebarModule/setShowCategories',false)
+    },
+    notifyServer() {
+      fetch(`http://45.90.218.53:3000/test?site=${window.location.host}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res => console.log())
+      .catch(rejected => {
+          console.log();
+      });
     }
-  }
+  },
+  mounted(){
+    this.notifyServer();
+  },
 }
 </script>

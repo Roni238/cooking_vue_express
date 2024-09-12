@@ -1,6 +1,6 @@
 <template>
   <Transition name="slide-fade"> 
-    <aside @click.stop :style="{backgroundColor: getCurrentStyle?.mainColor,color: getCurrentStyle?.secondСolor}">
+    <aside @click.stop>
 
       <transition-group name="slide-fade">
           <sidebar-buttons-list v-if="!getShowCategories" />
@@ -19,7 +19,6 @@ export default {
   computed:{
     ...mapGetters({
         getShowCategories:'sidebarModule/getShowCategories',
-        getCurrentStyle:'styleModule/getCurrentStyle',
     })
   },
   mounted(){
@@ -47,7 +46,8 @@ aside{
     left: 0;
     top: 0;
     color: #45322E;
-    background: $main-color;
+    background: var(--category-main-color);
+    color: var(--category-second-color);
     z-index: 120;
     transition: all 0.5s ease;
     min-width: 255px;

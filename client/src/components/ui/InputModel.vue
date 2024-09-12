@@ -17,6 +17,8 @@ export default {
 <style scoped lang="scss">
 
 input {
+  color: var(--category-second-color);
+  background-color: var(--category-main-color);
   outline: none;
   font-size: 20px;
   padding: 5px;

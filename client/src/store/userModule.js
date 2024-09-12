@@ -55,6 +55,7 @@ export default {
         async checkAuth({commit}){
             try {
                 const { data: userData } = await axios.get(`${API_URL}/refresh`, {withCredentials:true})
+                // console.log(`${API_URL}refresh`)
                 localStorage.setItem('token', userData.accessToken)
                 commit('setUser', userData.user)
             } catch (error) {

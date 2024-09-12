@@ -1,16 +1,17 @@
 <template >
 <div class="categoriy-styling">
     <h2>Редактируемая категория</h2>
-    <categories-selected :model-value="selectedCategory" @update:model-value="setSelectedCategory"/>
+
+    <categories-selected :model-value="editCurrentCategory.selectedCategory" @update:model-value="setSelectedCategory"/>
 
     <section>
         <h2>Цвет фона</h2>
-        <input-model type="color" :model-value="mainColor" @update:model-value="setMainColor"/>
+        <input-model type="color" :model-value="editCurrentCategory.mainColor" @update:model-value="setMainColor"/>
     </section>
     
     <section>
         <h2>Цвет шапки и обводок</h2>
-        <input-model type="color" :model-value="secondСolor" @update:model-value="setSecondСolor"/>
+        <input-model type="color" :model-value="editCurrentCategory.secondСolor" @update:model-value="setSecondСolor"/>
     </section>
     
     <button @click="this.$store.dispatch('styleModule/styleEdit')">Стилизовать</button>
@@ -31,43 +32,44 @@ export default {
     },
     computed:{
         ...mapState({
-            selectedCategory: state => state.styleModule.editCurrentCategory.selectedCategory,
-            mainColor: state => state.styleModule.editCurrentCategory.mainColor,
-            secondСolor: state => state.styleModule.editCurrentCategory.secondСolor,
+            editCurrentCategory: state => state.styleModule.editCurrentCategory,
         }),
     },
     mounted(){
-        this.$store.commit('styleModule/setDefaultStyle')
+        this.$store.dispatch('styleModule/resetStyle')
     },
 }
 </script>
 <style scoped lang="scss">
-button{
-    padding: 10px;
-    border: 1px black solid;
-    background-color: $second-color;
-    border-radius:10px;
-    color: $main-color;
-}
-
-.categoriy-styling{
-    max-width:1000px;
-    margin:auto;
-    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.3);
-    padding: 10px 20px;
-}
-
 div input{
     width: 50px;
     height: 50px;
 }
-section{
-    display: flex;
-    gap: 10px;
-    margin-top: 5px;
-    align-items: center;
-}
-h2{
-    margin: 10px 0px;
-}
+
+    .categoriy-styling{
+        max-width:1000px;
+        margin:auto;
+        box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.3);
+        padding: 10px 20px;
+
+        section{
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+            align-items: center;
+        }
+
+        h2{
+            margin: 10px 0px;
+        }
+
+        button{
+            padding: 10px;
+            border: none;
+            font-weight: 600;
+            background-color: var(--category-second-color);
+            border-radius:10px;
+            color: var(--category-main-color);
+        }
+    }
 </style>

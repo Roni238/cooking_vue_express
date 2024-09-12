@@ -26,12 +26,12 @@ class MailService {
                 <meta charset="utf-8">
                 <style>
                     div{
-                        background-color:rgb(197,191,167);
-                        color:rgb(93,87,73);
+                        background-color:#f0f0f0;
+                        color:#92000A;
                         padding:15px;
                     }
                     h1{
-                        color:rgb(93,87,73); 
+                        color:#92000A; 
                     }
                 </style>
               </head>
