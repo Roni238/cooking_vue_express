@@ -229,16 +229,18 @@ li{
     }
     
     @media (max-width: 600px) {
-        .adout{
-            flex-direction: column;
-            align-items: center;
+    .recipe-page section{
+            .adout{
+                flex-direction: column;
+                align-items: center;
 
-            .title-image{
-                height: 100wv;
-            }
-
-            .info{
-                width: 100%;
+                .title-image{
+                    height: 100wv;
+                }
+    
+                .info{
+                    width: 100%;
+                }
             }
         }
     }   
