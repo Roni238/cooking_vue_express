@@ -1,7 +1,7 @@
 # Light-food
 
-## Сайт с разными рецептами на vue и expressJs
-## Просмотр: https://light-food.ru/
+ Сайт с разными рецептами на vue и expressJs
+ Просмотр: https://light-food.ru/
 
 ## Начало работы
 !!! Подставить свои данные в файл конфига .env!!!
